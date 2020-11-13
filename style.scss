@@ -17,12 +17,14 @@ body {
 
 }
 
-ul {
+ul,
+ol {
     list-style: none;
 }
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 .main {
@@ -33,8 +35,12 @@ a {
 }
 
 .container {
-    max-width: 80vw;
-    width: 100%;
+    /*max-width: 80vw;
+    width: 100%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .nav {
@@ -200,69 +206,243 @@ a {
 }
 
 .support {
-    
+
     h2 {
 
         text-align: center;
         font-size: 14;
         color: $text-gray;
         font-weight: bold;
-        
 
-       &::before {
+
+        &::before {
             content: '';
             border-top: 1px solid $gray;
             width: 430px;
             height: 2px;
             display: inline-block;
-            margin-right:40px ;
-            
+            margin-right: 40px;
+
         }
+
         &::after {
             content: '';
             border-top: 1px solid $gray;
             width: 430px;
             height: 2px;
             display: inline-block;
-            margin-left:40px ;
+            margin-left: 40px;
         }
 
     }
-    div{
+
+    div {
         margin-top: 30px;
         padding-top: 40px;
-        ul{
-            display:flex ;
+
+        ul {
+            display: flex;
             justify-content: space-evenly;
         }
-       span{
-           @include sbullet;
-           &::before{
+
+        span {
             @include sbullet;
-            content: "";  
-           }
-           &::after{
-            @include sbullet;  
-            content: "";
-           }
-       } 
+
+            &::before {
+                @include sbullet;
+                content: "";
+            }
+
+            &::after {
+                @include sbullet;
+                content: "";
+            }
+        }
     }
 }
-.advantages{
+
+.advantages {
     margin-top: 50px;
-    padding-top:50px ;
+    padding-top: 50px;
 }
-.advantagesheader{
+
+.advantagesheader {
     font-size: xx-large;
-    h2{
+
+    h2 {
         line-height: 1.3;
         text-align: center;
-    
-        
+
+
     }
 
 }
-.advantagesclass{
-    display:flex;
+
+.advantagesclass {
+    display: flex;
+    height: 700px;
+    width: inherit;
+    background-color: lightgoldenrodyellow;
+
+}
+
+.access,
+.connectivity,
+.engagement {
+    @include advantages;
+
+
+}
+
+.advantage-item__head {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
     flex-direction: column;
+    margin-bottom: 10px;
+
+    strong {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: .9rem;
+        color: $text-gray;
+        line-height: 1.5;
+    }
+}
+
+.advantage-item__list {
+    width: 100%;
+    padding-top: 20px;
+
+    li {
+
+        display: flex;
+        margin: 15px 0;
+        padding: 8px 0;
+
+    }
+}
+
+.advantage-item__list-item__icon {
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    background-color: $seablue;
+    margin-right: 10px;
+}
+
+.advantage-item__list-item__content {
+    width: 80%;
+
+    p {
+        font-size: 0.8rem;
+        padding-top: 8px;
+        color: $text-gray;
+    }
+
+    strong {
+        font-size: 0.8rem;
+
+    }
+}
+
+.advantage-item__badge {
+    font-size: 0.5rem;
+    background-color: $span-gray;
+    color: $purple;
+    float: right;
+    width: 80px;
+    height: 20px;
+    padding: 5px 0 5px 8px;
+    text-transform: uppercase;
+
+    &::before {
+        content: "";
+        height: 5px;
+        width: 5px;
+        border-radius: 50px;
+        margin-right: 5px;
+        background-color: $white;
+        display: inline-block;
+
+    }
+}
+
+//.learn-more{
+
+//}
+.third-section {
+    padding-top: 30px;
+    background-color: rgba(173, 186, 230, 0.3);
+}
+
+.header {
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+
+    h2 {
+        font-size: xx-large;
+
+
+    }
+
+    p {
+        width: 650px;
+        color: $text-gray;
+        margin-top: 30px;
+        font-size: 1.2rem;
+
+    }
+}
+
+.ol {
+    height: 270px;
+    width: 300px;
+ 
+    counter-reset: li;
+    :nth-child(2){
+        margin: 25px 0;
+    }
+    
+
+    li {
+        height:70px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 15px;
+        text-align: center;
+        background-color: $white;
+         
+       
+
+
+        &::before {
+            counter-increment: li;
+            content: counter(li);
+        }
+    }
+}
+
+.animation {
+    background-color: blue;
+    
+    max-width: 575px;
+    width: 100%;
+}
+
+.third-section__container {
+    display: flex;
+    justify-content: space-between;
+    height: 70vh;
+    background-color: lightgoldenrodyellow;
+    margin-bottom: 30px;
+    padding: 0 50px;
 }
